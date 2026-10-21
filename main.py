@@ -122,3 +122,6 @@ def main():
         print("AI:", result["messages"][-1].content, "\n")
         history = result["messages"]
 
+
+if __name__ == "__main__":
+    main()

@@ -8,6 +8,13 @@ from langchain_ollama import ChatOllama
 rooms = {
     101: {"type": "Single", "capacity": 1, "price": 5000},
     102: {"type": "Single", "capacity": 1, "price": 5000},
+    103: {"type": "Single", "capacity": 1, "price": 5000},
+    104: {"type": "Double", "capacity": 2, "price": 8000},
+    105: {"type": "Double", "capacity": 2, "price": 8000},
+    106: {"type": "Double", "capacity": 2, "price": 8000},
+    107: {"type": "Family", "capacity": 4, "price": 12000},
+    108: {"type": "Family", "capacity": 4, "price": 12000},
+    109: {"type": "Family", "capacity": 4, "price": 12000},
 }
 
 # Save Bookings 

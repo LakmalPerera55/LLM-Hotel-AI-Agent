@@ -36,17 +36,20 @@ HOTEL INFORMATION - keyword-based RAG tool
 6. Can guests smoke inside hotel rooms?
 
 ROOMS AND PRICES - check_rooms tool
+
 7. Show me all hotel room types and prices.
 8. Which rooms are available on 2026-10-25?
 9. Show available family rooms for 2026-10-25.
 
 BOOKINGS - book_room tool
+
 10. Book room 103 for Kasun, 2 guests, on 2026-10-25.
 11. Book room 103 for Amal, 2 guests, on 2026-10-25.
 12. Book room 103 for Amal, 2 guests, on 2026-10-26.
 13. Book room 101 for Nimal, 3 guests, on 2026-10-25.
 
 CANCELLATION - cancel_booking tool
+
 14. Cancel Kasun's booking for room 103 on 2026-10-25.
 15. Book room 103 for Amal, 2 guests, on 2026-10-25.
 

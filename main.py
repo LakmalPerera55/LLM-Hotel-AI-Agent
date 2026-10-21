@@ -92,3 +92,33 @@ agent = create_agent(
         "If a question is about hotel facilities or policies, say the information is not available yet."
     )
 )
+
+#run
+def main():
+    print("------------------------------------")
+    print("   GREEN PALACE HOTEL AI ASSISTANT")
+    print("------------------------------------")
+    print("AI Assistant Started!\n")
+
+    history = []
+    while True:
+        question = input("You: ").strip()
+        if question.lower() == "exit":
+            break
+        if question == "":
+            continue
+
+        history.append(("user", question))
+        previous_messages = len(history)
+
+        try:
+            result = agent.invoke({"messages": history}, {"recursion_limit": 15})
+        except Exception as e:
+            print("Error:", e)
+            history.pop()
+            continue
+
+        # Print answers
+        print("AI:", result["messages"][-1].content, "\n")
+        history = result["messages"]
+

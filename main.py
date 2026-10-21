@@ -84,6 +84,43 @@ def book_room(name: str, room_number: int, guests: int, date: str) -> str:
     return f"BOOKING CONFIRMED: {name}, Room {room_number}, {guests} guest(s), {date}. Price: Rs. {price}."
 
 
+#cancel booking
+@tool
+def cancel_booking(name: str, room_number: int, date: str) -> str:
+    """Cancel an existing booking using guest name,
+    room number and booking date (YYYY-MM-DD)."""
+
+    name = name.strip()
+
+    if not name:
+        return "Please provide the guest's name."
+
+    if room_number not in rooms:
+        return "This room does not exist."
+
+    if not valid_date(date):
+        return "Please enter the booking date in YYYY-MM-DD format."
+
+    for index, booking in enumerate(bookings):
+        if (
+            booking["name"].casefold() == name.casefold()
+            and booking["room"] == room_number
+            and booking["date"] == date
+        ):
+            bookings.pop(index)
+
+            return (
+                f"BOOKING CANCELLED: Room {room_number} "
+                f"for {name} on {date}."
+            )
+
+    return (
+        "No matching booking found. "
+        "Check guest name, room number and date."
+    )
+
+
+
 llm = ChatOllama(model="llama3.2", temperature=0)
 
 agent = create_agent(

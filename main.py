@@ -191,6 +191,8 @@ def search_hotel_info(question: str) -> str:
             "Retrieved hotel information from docs/info.txt:\n"
             + context
         )
+    except Exception as error:
+        return f"Hotel information search failed: {error}"
 
 llm = ChatOllama(model="llama3.2", temperature=0)
 

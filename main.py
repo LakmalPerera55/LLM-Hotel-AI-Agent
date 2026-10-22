@@ -176,7 +176,12 @@ def search_hotel_info(question: str) -> str:
             query=question,
             k=3,
         )
- 
+
+        if not results:
+            return (
+                "No matching information was found. "
+                "Please contact reception."
+            )
 
 llm = ChatOllama(model="llama3.2", temperature=0)
 

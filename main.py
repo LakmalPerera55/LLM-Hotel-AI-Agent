@@ -167,7 +167,10 @@ def search_hotel_info(question: str) -> str:
     """Search hotel facilities, room features, food, services
     and policies using embedding-based semantic retrieval.
     Do not use for live room availability or prices."""
- 
+
+    if not question.strip():
+        return "Please provide a hotel information question."
+    
 
 llm = ChatOllama(model="llama3.2", temperature=0)
 

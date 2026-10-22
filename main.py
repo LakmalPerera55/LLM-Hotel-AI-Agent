@@ -1,7 +1,7 @@
 from langchain.agents import create_agent
 from langchain_core.messages import AIMessage, ToolMessage
 from langchain_core.tools import tool
-from langchain_ollama import ChatOllama
+from langchain_ollama import ChatOllama , OllamaEmbeddings
 
 
 # Hotel rooms
@@ -137,6 +137,15 @@ def build_vector_store():
     if not text.strip():
         raise ValueError("docs/info.txt is empty.")
 
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=500,
+        chunk_overlap=80,
+    )
+ 
+    documents = splitter.create_documents([text])
+
+
+    
 llm = ChatOllama(model="llama3.2", temperature=0)
 
 agent = create_agent(

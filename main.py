@@ -170,7 +170,13 @@ def search_hotel_info(question: str) -> str:
 
     if not question.strip():
         return "Please provide a hotel information question."
-    
+
+    try:
+        results = vector_store.similarity_search(
+            query=question,
+            k=3,
+        )
+ 
 
 llm = ChatOllama(model="llama3.2", temperature=0)
 

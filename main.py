@@ -132,7 +132,10 @@ def build_vector_store():
         raise FileNotFoundError(
             f"Hotel information file not found: {INFO_FILE}"
         )
+    text = INFO_FILE.read_text(encoding="utf-8")
 
+    if not text.strip():
+        raise ValueError("docs/info.txt is empty.")
 
 llm = ChatOllama(model="llama3.2", temperature=0)
 

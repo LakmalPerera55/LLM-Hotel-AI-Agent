@@ -183,6 +183,12 @@ def search_hotel_info(question: str) -> str:
                 "Please contact reception."
             )
 
+        context = "\n\n".join(
+            document.page_content for document in results
+        )
+        
+        
+
 llm = ChatOllama(model="llama3.2", temperature=0)
 
 agent = create_agent(

@@ -124,7 +124,14 @@ def cancel_booking(name: str, room_number: int, date: str) -> str:
 embeddings = OllamaEmbeddings(
     model="nomic-embed-text"
 )
+def build_vector_store():
+    """Load hotel information, create text chunks,
+    generate embeddings and store them in ChromaDB."""
 
+    if not INFO_FILE.is_file():
+        raise FileNotFoundError(
+            f"Hotel information file not found: {INFO_FILE}"
+        )
 
 
 llm = ChatOllama(model="llama3.2", temperature=0)

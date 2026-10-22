@@ -160,7 +160,7 @@ def build_vector_store():
  
     return vector_store
  
-
+vector_store = build_vector_store()
     
 llm = ChatOllama(model="llama3.2", temperature=0)
 

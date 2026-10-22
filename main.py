@@ -186,8 +186,11 @@ def search_hotel_info(question: str) -> str:
         context = "\n\n".join(
             document.page_content for document in results
         )
-        
-        
+
+        return (
+            "Retrieved hotel information from docs/info.txt:\n"
+            + context
+        )
 
 llm = ChatOllama(model="llama3.2", temperature=0)
 

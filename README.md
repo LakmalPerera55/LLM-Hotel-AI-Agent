@@ -3,17 +3,12 @@ Local AI hotel assistant built with LangChain, LangGraph &amp; Ollama (Llama 3.2
 
 1. REQUIREMENTS
 
-Check if the Llama model is installed:
-    ollama list
-
-If llama3.2 is missing, download it:
+Download the Ollama models required by the assistant:
     ollama pull llama3.2
+    ollama pull nomic-embed-text
 
-Check installed Python packages:
-    py -m pip show langchain langchain-ollama langgraph
-
-Install missing Python packages (only if needed):
-    py -m pip install langchain langchain-ollama langgraph
+Install the Python dependencies:
+    py -m pip install -r requirements.txt
 
 
 

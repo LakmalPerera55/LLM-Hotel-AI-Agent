@@ -1,8 +1,16 @@
+from datetime import datetime
+from pathlib import Path
+
 from langchain.agents import create_agent
 from langchain_core.messages import AIMessage, ToolMessage
 from langchain_core.tools import tool
 from langchain_ollama import ChatOllama , OllamaEmbeddings
 from langchain_chroma import Chroma
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+BASE_DIR = Path(__file__).resolve().parent
+INFO_FILE = BASE_DIR / "docs" / "info.txt"
+VECTOR_DB_DIR = BASE_DIR / "chroma_db"
 
 
 # Hotel rooms
@@ -193,6 +201,7 @@ def search_hotel_info(question: str) -> str:
         )
     except Exception as error:
         return f"Hotel information search failed: {error}"
+    
 
 llm = ChatOllama(model="llama3.2", temperature=0)
 

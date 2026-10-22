@@ -119,6 +119,12 @@ def cancel_booking(name: str, room_number: int, date: str) -> str:
         "Check guest name, room number and date."
     )
 
+# EMBEDDING-BASED VECTOR RAG
+
+embeddings = OllamaEmbeddings(
+    model="nomic-embed-text"
+)
+
 
 
 llm = ChatOllama(model="llama3.2", temperature=0)

@@ -161,7 +161,14 @@ def build_vector_store():
     return vector_store
  
 vector_store = build_vector_store()
-    
+
+@tool
+def search_hotel_info(question: str) -> str:
+    """Search hotel facilities, room features, food, services
+    and policies using embedding-based semantic retrieval.
+    Do not use for live room availability or prices."""
+ 
+
 llm = ChatOllama(model="llama3.2", temperature=0)
 
 agent = create_agent(

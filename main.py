@@ -2,6 +2,7 @@ from langchain.agents import create_agent
 from langchain_core.messages import AIMessage, ToolMessage
 from langchain_core.tools import tool
 from langchain_ollama import ChatOllama , OllamaEmbeddings
+from langchain_chroma import Chroma
 
 
 # Hotel rooms
@@ -144,6 +145,11 @@ def build_vector_store():
  
     documents = splitter.create_documents([text])
 
+    vector_store = Chroma(
+        collection_name="green_palace_hotel",
+        embedding_function=embeddings,
+        persist_directory=str(VECTOR_DB_DIR),
+    )
 
     
 llm = ChatOllama(model="llama3.2", temperature=0)

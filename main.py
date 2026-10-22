@@ -151,6 +151,16 @@ def build_vector_store():
         persist_directory=str(VECTOR_DB_DIR),
     )
 
+    existing_ids = vector_store.get()["ids"]
+ 
+    if existing_ids:
+        vector_store.delete(ids=existing_ids)
+ 
+    vector_store.add_documents(documents)
+ 
+    return vector_store
+ 
+
     
 llm = ChatOllama(model="llama3.2", temperature=0)
 

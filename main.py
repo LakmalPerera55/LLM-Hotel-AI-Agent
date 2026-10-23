@@ -210,11 +210,13 @@ agent = create_agent(
     system_prompt=(
         "You are the Green Palace Hotel assistant. Answer in simple English. "
         "Use check_rooms for room types, prices and availability. "
-        "Use book_room for bookings. "
+        "Use book_room for bookings and cancel_booking for cancellations. "
         "Each booking is for one whole calendar date, not a night or a date range. "
         "Dates must be YYYY-MM-DD. Ask for any missing booking information. "
         "Never say a booking is confirmed unless the tool says so. "
-        "If a question is about hotel facilities or policies, say the information is not available yet."
+        "Use search_hotel_info for hotel facilities, food, services and policies. "
+        "For hotel information, answer only using retrieved information. "
+        "If information is not found, tell the guest to contact reception."
     )
 )
 
@@ -242,6 +244,14 @@ def main():
             print("Error:", e)
             history.pop()
             continue
+
+        # Print tool calls
+        for message in result["messages"][previous_messages:]:
+            if isinstance(message, AIMessage) and message.tool_calls:
+                for call in message.tool_calls:
+                    print("[Tool]", call["name"], call["args"])
+            elif isinstance(message, ToolMessage):
+                print("[Tool Result]", message.content)
 
         # Print answers
         print("AI:", result["messages"][-1].content, "\n")

@@ -1,5 +1,5 @@
 # LLM-Hotel-AI-Chatbot
-Local AI hotel assistant built with LangChain, LangGraph &amp; Ollama (Llama 3.2). Answers hotel FAQs using embedding-based RAG with ChromaDB, checks room availability and prices, and handles bookings and cancellations from the terminal.
+Local AI hotel assistant built with LangChain, LangGraph & Ollama (Llama 3.2). Answers hotel FAQs using embedding-based RAG with ChromaDB, checks room availability and prices, and handles bookings and cancellations from the terminal.
 
 1. REQUIREMENTS
 
@@ -33,8 +33,8 @@ HOTEL INFORMATION - embedding-based RAG tool
 ROOMS AND PRICES - check_rooms tool
 
 7. Show me all hotel room types and prices.
-8. Which rooms are available on 2026-10-25?
-9. Show available family rooms for 2026-10-25.
+8. Which rooms are available on 2026-11-05?
+9. Show available family rooms for 2026-11-05.
 
 BOOKINGS - book_room tool
 

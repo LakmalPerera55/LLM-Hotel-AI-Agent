@@ -207,7 +207,7 @@ llm = ChatOllama(model="llama3.2", temperature=0)
 
 agent = create_agent(
     llm,
-    [check_rooms, book_room],
+    [check_rooms, book_room,cancel_booking,search_hotel_info],
     system_prompt=(
         "You are the Green Palace Hotel assistant. Answer in simple English. "
         "Use check_rooms for room types, prices and availability. "

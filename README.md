@@ -1,5 +1,5 @@
 # LLM-Hotel-AI-Chatbot
-Local AI hotel assistant built with LangChain, LangGraph &amp; Ollama (Llama 3.2). Answers hotel FAQs via keyword RAG, checks room availability and prices, and handles bookings and cancellations from the terminal.
+Local AI hotel assistant built with LangChain, LangGraph &amp; Ollama (Llama 3.2). Answers hotel FAQs using embedding-based RAG with ChromaDB, checks room availability and prices, and handles bookings and cancellations from the terminal.
 
 1. REQUIREMENTS
 
@@ -22,7 +22,7 @@ Install the Python dependencies:
 3. SAMPLE QUESTIONS (TYPE THESE INTO THE TERMINAL)
 --------------------------------------------------
 
-HOTEL INFORMATION - keyword-based RAG tool
+HOTEL INFORMATION - embedding-based RAG tool
 1. Does your hotel have a swimming pool?
 2. What time does the swimming pool close?
 3. Is free Wi-Fi available?
@@ -38,15 +38,15 @@ ROOMS AND PRICES - check_rooms tool
 
 BOOKINGS - book_room tool
 
-10. Book room 103 for Kasun, 2 guests, on 2026-10-25.
-11. Book room 103 for Amal, 2 guests, on 2026-10-25.
-12. Book room 103 for Amal, 2 guests, on 2026-10-26.
-13. Book room 101 for Nimal, 3 guests, on 2026-10-25.
+10. Book room 104 for Kasun, 2 guests, on 2026-11-05.
+11. Book room 104 for Amal, 2 guests, on 2026-11-05.
+12. Book room 104 for Amal, 2 guests, on 2026-11-06.
+13. Book room 101 for Nimal, 3 guests, on 2026-11-05.
 
 CANCELLATION - cancel_booking tool
 
-14. Cancel Kasun's booking for room 103 on 2026-10-25.
-15. Book room 103 for Amal, 2 guests, on 2026-10-25.
+14. Cancel Kasun's booking for room 104 on 2026-11-05.
+15. Book room 104 for Amal, 2 guests, on 2026-11-05.
 
 IMPORTANT: To test duplicate booking and cancellation, ask questions
 10 through 15 in order during the SAME program run.

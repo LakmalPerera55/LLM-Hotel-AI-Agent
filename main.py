@@ -32,12 +32,11 @@ bookings = []
 
 # Check the date format
 def valid_date(date: str) -> bool:
-    if len(date) != 10:
+    try:
+        parsed_date = datetime.strptime(date, "%Y-%m-%d")
+        return parsed_date.strftime("%Y-%m-%d") == date
+    except (ValueError, TypeError):
         return False
-    if date[4] != "-" or date[7] != "-":
-        return False
-    numbers = date[:4] + date[5:7] + date[8:]
-    return numbers.isdigit()
 
 # check availability
 @tool

@@ -68,6 +68,7 @@ def check_rooms(date: str = "") -> str:
 @tool
 def book_room(name: str, room_number: int, guests: int, date: str) -> str:
     """Book a hotel room for one whole date (YYYY-MM-DD). Needs guest name, room number, number of guests and date."""
+    # remove unwanted spaces
     name = name.strip()
     if name == "":
         return "Please provide the guest's name."
@@ -109,6 +110,7 @@ def cancel_booking(name: str, room_number: int, date: str) -> str:
     if not valid_date(date):
         return "Please enter the booking date in YYYY-MM-DD format."
 
+    #get index and booking records
     for index, booking in enumerate(bookings):
         if (
             booking["name"].casefold() == name.casefold()
